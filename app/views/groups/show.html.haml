@@ -1,0 +1,23 @@
+.show
+  .show__list
+    .show__title
+      補修の詳細
+  .show__list__content
+    .show__list__content__box
+      .show__list__content__box__place
+        場所:
+        = @group.place
+      .show__list__content__box__symptom
+        症状:
+        = @group.symptom
+      .show__list__content__box__cause
+        原因:
+        = @group.cause
+      .show__list__content__box__treatment
+        処置:
+        = @group.treatment
+    .show__list__content__select
+      .show__list__content__select__edit
+        = link_to "編集", edit_group_path(@group),method: :get
+      .show__list__content__select__delete
+        = link_to "削除", group_path(@group),method: :DELETE

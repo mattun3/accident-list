@@ -1,0 +1,20 @@
+.info
+  .info__box
+    = form_for @group do |f|
+      .info__box__name
+        対応者
+        = f.text_field :name, class: "name"
+      .info__box__date
+        日時
+        = f.datetime_field :date, class: "date"
+      .info__box__place
+        場所
+        = f.text_field :place, class: "place"
+      .info__box__symptom
+        = f.text_area :symptom, placeholder: "症状", class: "symptom", size: "70x4"
+      .info__box__cause
+        = f.text_area :cause, placeholder: "原因", class: "cause", size: "70x4"
+      .info__box__treatment
+        = f.text_area :treatment, placeholder: "処置", class: "treatment", size: "70x4"
+      .info__box__submit
+        = f.submit "登録", class: "submit"

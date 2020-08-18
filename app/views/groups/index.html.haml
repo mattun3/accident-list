@@ -1,0 +1,38 @@
+.wrapper
+  .header
+    .header__title
+      補修リスト
+    .header__icon 
+      = link_to new_group_path do
+        %i.far.fa-edit
+    .search
+      %p 
+        検索 
+        = form_tag(groups_path, :method => "get") do
+          .search_text
+            = text_field_tag :search, params[:search]
+            = submit_tag "検索", :name => nil   
+      - if @search_users
+        %ul.media-list
+          - @search_groups.each do |user|  
+            %li.media
+              .media-left
+          -# <img class="media-object img-rounded" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">   
+              .media-body  
+                = group.place
+                -# = link_to 'View profile', user_path(user) %></p>  
+        = paginate @search_groups
+  .contents
+    .content
+      - @groups.each do |group|
+        .content__list
+          .content__list__box
+            .content__list__box__place
+              場所
+              = group.place
+            .content__list__box__symptom
+              症状
+              = group.symptom
+          .content__list__select
+            .content__list__select__show
+              = link_to "詳細", group_path(group),method: :get
